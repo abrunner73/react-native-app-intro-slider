@@ -28,6 +28,7 @@ export default class AppIntroSlider extends React.Component {
     dotStyle: {
       backgroundColor: 'rgba(0, 0, 0, .2)',
     },
+    paginationContainerStyle: {},
     skipLabel: 'Skip',
     doneLabel: 'Done',
     nextLabel: 'Next',
@@ -107,9 +108,8 @@ export default class AppIntroSlider extends React.Component {
 
     const skipBtn = (!isFirstSlide && this._renderPrevButton()) || (!isLastSlide && this._renderSkipButton());
     const btn = isLastSlide ? this._renderDoneButton() : this._renderNextButton();
-
     return (
-      <View style={styles.paginationContainer}>
+      <View style={[styles.paginationContainer, this.props.paginationContainerStyle]}>
         <View style={styles.paginationDots}>
           {!this.props.bottomButton && skipBtn}
           {this.props.slides.length > 1 && this.props.slides.map((_, i) => (
