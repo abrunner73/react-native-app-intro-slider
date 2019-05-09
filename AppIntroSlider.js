@@ -144,8 +144,7 @@ export default class AppIntroSlider extends React.Component {
     const isLastSlide = this.state.activeIndex === this.props.slides.length - 1;
     const isFirstSlide = this.state.activeIndex === 0;
 
-    const skipBtn =
-      (!isFirstSlide && this._renderPrevButton()) || (!isLastSlide && this._renderSkipButton());
+    const skipBtn = this._renderSkipButton();
     const btn = isLastSlide ? this._renderDoneButton() : this._renderNextButton();
 
     return (
